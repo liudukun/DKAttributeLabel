@@ -1,5 +1,22 @@
 # DKAttributeLabel
-自己写的图文混排Label
+自己写的图文混排Label,可以满足基本社区类,IM类功能,可自行修改
+
+##正则表达式解析
+[#r{}#]
+#r:点击事件
+#f:表情
+#l:链接
+
+###Key for touch redirect 
+
+t: subType
+bc: background color
+bsc: background selected color
+tc: text color
+tsc: text selected color
+ct: conent show
+id:content id
+
 
 ##Usage
 
@@ -9,7 +26,7 @@
     [self.view addSubview:label];
     
 
-##Touch Delegate
+##Touch DKAttributeLabelDelegate 
 
     - (void)actionNode:(DKAttributeNode *)node {
         NSLog(@"action node ,content =%@",node.content);
