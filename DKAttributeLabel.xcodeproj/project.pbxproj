@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E37565D1244BF3D300FCE741 /* DKAttributeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E37565CF244BF3D300FCE741 /* DKAttributeLabel.m */; };
+		E37565D4244BF40600FCE741 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E37565D3244BF40600FCE741 /* ViewController.m */; };
 		E3A75A5722ACF97900C3D957 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A75A5622ACF97900C3D957 /* AppDelegate.m */; };
-		E3A75A5A22ACF97900C3D957 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3A75A5922ACF97900C3D957 /* ViewController.m */; };
 		E3A75A5D22ACF97900C3D957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A75A5B22ACF97900C3D957 /* Main.storyboard */; };
 		E3A75A5F22ACF97B00C3D957 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3A75A5E22ACF97B00C3D957 /* Assets.xcassets */; };
 		E3A75A6222ACF97B00C3D957 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A75A6022ACF97B00C3D957 /* LaunchScreen.storyboard */; };
@@ -16,11 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E3A75A5222ACF97900C3D957 /* PhotoCrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoCrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E37565CD244BF3D300FCE741 /* DKAttributeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DKAttributeLabel.h; sourceTree = "<group>"; };
+		E37565CF244BF3D300FCE741 /* DKAttributeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKAttributeLabel.m; sourceTree = "<group>"; };
+		E37565D2244BF40600FCE741 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E37565D3244BF40600FCE741 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E3A75A5222ACF97900C3D957 /* DKAttributeLabel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKAttributeLabel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A75A5522ACF97900C3D957 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E3A75A5622ACF97900C3D957 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E3A75A5822ACF97900C3D957 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E3A75A5922ACF97900C3D957 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E3A75A5C22ACF97900C3D957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3A75A5E22ACF97B00C3D957 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3A75A6122ACF97B00C3D957 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E37565CB244BF3D300FCE741 /* DKAttrebuteText */ = {
+			isa = PBXGroup;
+			children = (
+				E37565CD244BF3D300FCE741 /* DKAttributeLabel.h */,
+				E37565CF244BF3D300FCE741 /* DKAttributeLabel.m */,
+			);
+			path = DKAttrebuteText;
+			sourceTree = "<group>";
+		};
 		E3A75A4922ACF97900C3D957 = {
 			isa = PBXGroup;
 			children = (
@@ -50,7 +62,7 @@
 		E3A75A5322ACF97900C3D957 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E3A75A5222ACF97900C3D957 /* PhotoCrop.app */,
+				E3A75A5222ACF97900C3D957 /* DKAttributeLabel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,10 +70,11 @@
 		E3A75A5422ACF97900C3D957 /* PhotoCrop */ = {
 			isa = PBXGroup;
 			children = (
+				E37565CB244BF3D300FCE741 /* DKAttrebuteText */,
 				E3A75A5522ACF97900C3D957 /* AppDelegate.h */,
 				E3A75A5622ACF97900C3D957 /* AppDelegate.m */,
-				E3A75A5822ACF97900C3D957 /* ViewController.h */,
-				E3A75A5922ACF97900C3D957 /* ViewController.m */,
+				E37565D2244BF40600FCE741 /* ViewController.h */,
+				E37565D3244BF40600FCE741 /* ViewController.m */,
 				E3A75A5B22ACF97900C3D957 /* Main.storyboard */,
 				E3A75A5E22ACF97B00C3D957 /* Assets.xcassets */,
 				E3A75A6022ACF97B00C3D957 /* LaunchScreen.storyboard */,
@@ -74,9 +87,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E3A75A5122ACF97900C3D957 /* PhotoCrop */ = {
+		E3A75A5122ACF97900C3D957 /* DKAttributeLabel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E3A75A6822ACF97B00C3D957 /* Build configuration list for PBXNativeTarget "PhotoCrop" */;
+			buildConfigurationList = E3A75A6822ACF97B00C3D957 /* Build configuration list for PBXNativeTarget "DKAttributeLabel" */;
 			buildPhases = (
 				E3A75A4E22ACF97900C3D957 /* Sources */,
 				E3A75A4F22ACF97900C3D957 /* Frameworks */,
@@ -86,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = PhotoCrop;
+			name = DKAttributeLabel;
 			productName = PhotoCrop;
-			productReference = E3A75A5222ACF97900C3D957 /* PhotoCrop.app */;
+			productReference = E3A75A5222ACF97900C3D957 /* DKAttributeLabel.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -105,7 +118,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E3A75A4D22ACF97900C3D957 /* Build configuration list for PBXProject "PhotoCrop" */;
+			buildConfigurationList = E3A75A4D22ACF97900C3D957 /* Build configuration list for PBXProject "DKAttributeLabel" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -118,7 +131,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E3A75A5122ACF97900C3D957 /* PhotoCrop */,
+				E3A75A5122ACF97900C3D957 /* DKAttributeLabel */,
 			);
 		};
 /* End PBXProject section */
@@ -141,9 +154,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3A75A5A22ACF97900C3D957 /* ViewController.m in Sources */,
 				E3A75A6522ACF97B00C3D957 /* main.m in Sources */,
 				E3A75A5722ACF97900C3D957 /* AppDelegate.m in Sources */,
+				E37565D1244BF3D300FCE741 /* DKAttributeLabel.m in Sources */,
+				E37565D4244BF40600FCE741 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +306,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liudukun.PhotoCrop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudukun.attributeLabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -309,7 +323,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liudukun.PhotoCrop;
+				PRODUCT_BUNDLE_IDENTIFIER = com.liudukun.attributeLabel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -318,7 +332,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E3A75A4D22ACF97900C3D957 /* Build configuration list for PBXProject "PhotoCrop" */ = {
+		E3A75A4D22ACF97900C3D957 /* Build configuration list for PBXProject "DKAttributeLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3A75A6622ACF97B00C3D957 /* Debug */,
@@ -327,7 +341,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E3A75A6822ACF97B00C3D957 /* Build configuration list for PBXNativeTarget "PhotoCrop" */ = {
+		E3A75A6822ACF97B00C3D957 /* Build configuration list for PBXNativeTarget "DKAttributeLabel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E3A75A6922ACF97B00C3D957 /* Debug */,
