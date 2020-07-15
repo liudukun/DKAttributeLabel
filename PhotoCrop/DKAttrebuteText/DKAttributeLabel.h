@@ -53,6 +53,7 @@ typedef enum : NSUInteger {
 @property (nonatomic,strong) NSString *orginalText;
 @property (nonatomic,strong) NSString *text;
 @property (nonatomic) NSTextAlignment alignment;
+@property (nonatomic) CGFloat height;
 
 @property (nonatomic,strong) UIFont *font;
 @property (nonatomic,strong) UIColor *backgroundColor;
@@ -60,6 +61,7 @@ typedef enum : NSUInteger {
 
 @property (nonatomic,strong) NSString *faceDirectory;
 
+- (CGFloat)getHeightOfWidth:(CGFloat)width orginalText:(NSString *)orginalText;
 
 @end
 
@@ -77,8 +79,6 @@ typedef enum : NSUInteger {
 @property (nonatomic,weak) id<DKAttributeLabelDelegate> delegate;
 
 @property (nonatomic,strong) DKAttributeText *attributeText;
-
-- (CGFloat)getHeight;
 
 
 @end

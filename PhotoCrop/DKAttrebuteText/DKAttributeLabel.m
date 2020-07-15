@@ -103,7 +103,7 @@
 
 @interface DKAttributeText (){
     
-
+    
     NSString *regluarLink,*regluarEmotion,*regluarFace;
 }
 
@@ -118,14 +118,14 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-              self.textColor = [UIColor grayColor];
+        self.textColor = [UIColor grayColor];
         self.font = [UIFont fontWithName:DKAttribute_Font_Name size:14.f];
         self.alignment = NSTextAlignmentNatural;
-       regluarFace = @"\\[#f:.*?#\\]";
-       regluarLink = @"(https?|ftp|file|http)://[-A-Za-z0-9+&@#/%?=~_|!.]+[-A-Za-z0-9+&@#/%=~_|]";
-          regluarEmotion = @"\\[#r:\\{.*?\\}#\\]";
+        regluarFace = @"\\[#f:.*?#\\]";
+        regluarLink = @"(https?|ftp|file|http)://[-A-Za-z0-9+&@#/%?=~_|!.]+[-A-Za-z0-9+&@#/%=~_|]";
+        regluarEmotion = @"\\[#r:\\{.*?\\}#\\]";
         self.regulars = @[regluarFace,regluarLink,regluarEmotion];
-
+        
     }
     return self;
 }
@@ -167,7 +167,7 @@
             DKAttributeNode *node = [DKAttributeNode new];
             node.type = DKTextTypeMotion;
             [node setValuesForKeysWithDictionary:dic];
-                    
+            
             NSAttributedString *replace = [[NSAttributedString alloc]initWithString:node.content attributes:@{NSForegroundColorAttributeName:node.textColor,NSBackgroundColorAttributeName:node.backgroundColor,NSFontAttributeName:node.font,NSParagraphStyleAttributeName:style}];
             [self.attributedString replaceCharactersInRange:result withAttributedString:replace];
             node.range = NSMakeRange(result.location, node.content.length);
@@ -180,9 +180,9 @@
             UIImage *image = [UIImage imageWithContentsOfFile:path];
             if (!image) {
                 path = [NSString stringWithFormat:@"%@emoji_nu.png",_faceDirectory];
-//                image = [UIImage imageWithContentsOfFile:path];
+                //                image = [UIImage imageWithContentsOfFile:path];
                 image = [UIImage imageNamed:@"emoji_null"];
-
+                
             }
             NSTextAttachment *att = [[NSTextAttachment alloc]init];
             att.image = image;
@@ -212,6 +212,15 @@
     }
     self.text = self.attributedString.string;
     
+}
+
+- (CGFloat)getHeightOfWidth:(CGFloat)width orginalText:(NSString *)orginalText{
+    if (self.height!=0) {
+        return self.height;
+    }
+    [self parseText:orginalText];
+    CGRect rect = [self.attributedString boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    return rect.size.height;
 }
 
 
@@ -245,7 +254,7 @@
 
 
 @interface DKAttributeLabel(){
- 
+    
 }
 @end
 
@@ -260,7 +269,7 @@
         self.clipsToBounds = YES;
         self.userInteractionEnabled = YES;
         
-       
+        
     }
     return self;
 }
@@ -287,17 +296,17 @@
 - (NSInteger)getLineIndex:(NSArray *)lines s:(CGPoint)s{
     __block NSInteger lineIndex = -1;
     __block CGFloat hc = 0;
-       [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
-           CTLineRef line = (__bridge CTLineRef)(obj);
-           CGRect bounds = CTLineGetBoundsWithOptions(line, 0);
-           NSLog(@"line = %li( %f,%f,%f,%f )",idx,bounds.origin.x,bounds.origin.y,bounds.size.width,bounds.size.height);
-           hc = bounds.size.height  + hc;
-
-           if (s.y < hc) {
-               lineIndex = idx;
-               *stop = YES;
-           }
-       }];
+    [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        CTLineRef line = (__bridge CTLineRef)(obj);
+        CGRect bounds = CTLineGetBoundsWithOptions(line, 0);
+        NSLog(@"line = %li( %f,%f,%f,%f )",idx,bounds.origin.x,bounds.origin.y,bounds.size.width,bounds.size.height);
+        hc = bounds.size.height  + hc;
+        
+        if (s.y < hc) {
+            lineIndex = idx;
+            *stop = YES;
+        }
+    }];
     
     return lineIndex;
 }
@@ -316,20 +325,20 @@
     if (!lines.count) {
         return;
     }
-   
+    
     NSInteger lineIndex = [self getLineIndex:lines s:s];
     if (lineIndex == -1) {
         return;
     }
     CTLineRef currentLine = (__bridge CTLineRef)lines[lineIndex];
-        
+    
     CFRange lineRange = CTLineGetStringRange(currentLine);
     NSString *lineString = [self.attributeText.text substringWithRange:NSMakeRange(lineRange.location, lineRange.length)];
     NSLog(@"%@",lineString);
-
+    
     CFIndex currentIndex = -1;
     unichar placeHolder = 0xFFFC;//创建空白字符
-           NSString *blank = [NSString stringWithCharacters:&placeHolder length:1];
+    NSString *blank = [NSString stringWithCharacters:&placeHolder length:1];
     int countBlank =0;
     for (CFIndex i = lineRange.location; i < lineRange.length + lineRange.location+1; i++) {
         CGFloat second = 0;
@@ -338,15 +347,15 @@
         currentIndex = i - 1;
         NSString *c = [self.attributeText.text substringWithRange:NSMakeRange(currentIndex, 1)];
         
-      CGFloat offset = countBlank * self.attributeText.font.lineHeight;
-
+        CGFloat offset = countBlank * self.attributeText.font.lineHeight;
+        
         if (s.x - offset< wordX) {
             NSLog(@"%@ | %f | %f %li",c,wordX,second, currentIndex);
             break;
         }
-       if ([c isEqualToString:blank]) {
-                 countBlank ++;
-             }
+        if ([c isEqualToString:blank]) {
+            countBlank ++;
+        }
     }
     if (currentIndex == -1) {
         return;
@@ -355,11 +364,12 @@
         if (NSLocationInRange(currentIndex , node.range)) {
             if (node) {
                 node.selected = YES;
+                [self.attributeText.attributedString addAttributes:@{NSForegroundColorAttributeName:node.selectedTextColor,NSBackgroundColorAttributeName:node.selectedBackgroundColor} range:node.range];
                 [self setNeedsDisplay];
             }
         }
     }];
-
+    
     lines = nil;
     CGPathRelease(path);
     CFRelease(setter);
@@ -372,6 +382,7 @@
             [self.delegate actionNode:node];
         }
         node.selected = NO;
+        [self.attributeText.attributedString addAttributes:@{NSForegroundColorAttributeName:node.textColor,NSBackgroundColorAttributeName:node.backgroundColor} range:node.range];
         [self setNeedsDisplay];
     }];
 }
@@ -383,6 +394,7 @@
             [self.delegate actionNode:node];
         }
         node.selected = NO;
+        [self.attributeText.attributedString addAttributes:@{NSForegroundColorAttributeName:node.textColor,NSBackgroundColorAttributeName:node.backgroundColor} range:node.range];
         [self setNeedsDisplay];
     }];
 }
@@ -393,13 +405,10 @@
             [self.delegate actionNode:node];
         }
         node.selected = NO;
+        [self.attributeText.attributedString addAttributes:@{NSForegroundColorAttributeName:node.textColor,NSBackgroundColorAttributeName:node.backgroundColor} range:node.range];
         [self setNeedsDisplay];
     }];
 }
 
-- (CGFloat)getHeight{
-    CGRect rect = [self.attributeText.attributedString boundingRectWithSize:CGSizeMake(self.frame.size.width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
-    return rect.size.height;
-}
 
 @end
