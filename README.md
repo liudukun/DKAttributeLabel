@@ -9,13 +9,13 @@
 
 ###Key for touch redirect 
 
-t: subType
-bc: background color
-bsc: background selected color
-tc: text color
-tsc: text selected color
-ct: conent show
-id:content id
+    t: subType
+    bc: background color
+    bsc: background selected color
+    tc: text color
+    tsc: text selected color
+    ct: conent show
+    id:content id
 
 
 ##Usage
